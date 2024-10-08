@@ -29,8 +29,18 @@ function Calculator() {
   };
 
   const calculateCapitalGain = () => {
-    // Your capital gain calculation logic here
-    // Remember to incorporate the selected province (if necessary for your calculations)
+    const sale = parseFloat(salePrice) || 0;
+    const acbValue = parseFloat(acb) || 0;
+    const exp = parseFloat(expenses) || 0;
+    
+    // Basic Capital Gain Formula
+    const gain = sale - acbValue - exp;
+
+    // Taxable Capital Gain (50% of the capital gain)
+    const taxableGain = gain * 0.5;
+
+    setCapitalGain(gain);
+    setTaxableCapitalGain(taxableGain);
   };
 
   return (
